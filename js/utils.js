@@ -1,9 +1,7 @@
 import { links } from "./elements.js";
 
 export function markAsSelected() {
-  links.forEach((link) => {
-    link.classList.remove("selected");
-  });
+  removeSelection();
 
   const currentUrlSegment = getUrlSegments();
   for (const link of links) {
@@ -13,6 +11,12 @@ export function markAsSelected() {
       link.classList.add("selected");
     }
   }
+}
+
+function removeSelection() {
+  links.forEach((link) => {
+    link.classList.remove("selected");
+  });
 }
 
 function getUrlSegments() {
